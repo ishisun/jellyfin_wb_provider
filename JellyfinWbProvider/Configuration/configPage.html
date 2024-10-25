@@ -1,0 +1,55 @@
+<div id="WbProviderConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-select,emby-checkbox">
+    <div data-role="content">
+        <div class="content-primary">
+            <form class="WbProviderConfigForm">
+                <div class="inputContainer">
+                    <label class="inputLabel" for="txtServerIp">サーバーのIPアドレス</label>
+                    <input is="emby-input" type="text" id="txtServerIp" required />
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel" for="txtServerPort">サーバーのポート番号</label>
+                    <input is="emby-input" type="number" id="txtServerPort" required />
+                </div>
+                <div>
+                    <button is="emby-button" type="submit" class="raised button-submit block">
+                        <span>保存</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var WbProviderConfig = {
+            pluginUniqueId: 'JellyfinWbProvider'
+        };
+
+        document.querySelector('.WbProviderConfigForm')
+            .addEventListener('submit', function(e) {
+                e.preventDefault();
+                Dashboard.showLoadingMsg();
+
+                ApiClient.getPluginConfiguration(WbProviderConfig.pluginUniqueId).then(function(config) {
+                    config.ServerIp = document.querySelector('#txtServerIp').value;
+                    config.ServerPort = parseInt(document.querySelector('#txtServerPort').value);
+
+                    ApiClient.updatePluginConfiguration(WbProviderConfig.pluginUniqueId, config).then(function(result) {
+                        Dashboard.processPluginConfigurationUpdateResult(result);
+                        // 設定更新後にページをリロード
+                        window.location.reload();
+                    }).catch(function(error) {
+                        console.error('設定の更新に失敗しました:', error);
+                        Dashboard.hideLoadingMsg();
+                    });
+                }).catch(function(error) {
+                    console.error('設定の取得に失敗しました:', error);
+                    Dashboard.hideLoadingMsg();
+                });
+            })
+
+        // 設定の読み込み
+        ApiClient.getPluginConfiguration(WbProviderConfig.pluginUniqueId).then(function(config) {
+            document.querySelector('#txtServerIp').value = config.ServerIp || '127.0.0.1';
+            document.querySelector('#txtServerPort').value = config.ServerPort || 8765;
+        });
+    </script>
+</div>

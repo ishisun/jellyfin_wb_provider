@@ -1,0 +1,20 @@
+[
+    {
+        "category": "Metadata",
+        "guid": "08767783-874a-452e-8332-8059e7c6262d", 
+        "name": "WbProvider",
+        "description": "WbProvider",
+        "owner": "ishisun",
+        "overview": "meta provider",
+        "versions": [
+            {
+                "checksum": "87f6eb8fd6643d6ce9000b9743606e37",
+                "changelog": "first releases",
+                "targetAbi": "10.8.0.0", 
+                "sourceUrl": "プラグインのzipファイルのURL",
+                "timestamp": "2024-01-20 00:00:00",
+                "version": "1.0.0.0"
+            }
+        ]
+    }
+]
