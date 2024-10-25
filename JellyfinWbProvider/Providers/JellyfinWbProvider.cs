@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Linq;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Entities.Movies;
 using MediaBrowser.Controller.Providers;
@@ -139,7 +140,7 @@ namespace JellyfinWbProvider.Providers
                                 var person = new PersonInfo
                                 {
                                     Name = metadata.Artist,
-                                    Type = PersonKind.Actor
+                                    Type = PersonType.Actor
                                 };
                                 result.AddPerson(person);
                             }
@@ -324,18 +325,22 @@ namespace JellyfinWbProvider.Providers
                 {
                     try
                     {
+                        // UNCパスをLinuxパスに変換
+                        string linuxPath = ConvertUncToLinuxPath(url);
+                        _logger.LogInformation($"変換後のパス: {linuxPath}");
+
                         // ファイルが存在するか確認
-                        if (File.Exists(url))
+                        if (File.Exists(linuxPath))
                         {
                             // ファイルを読み込む
-                            var imageBytes = await File.ReadAllBytesAsync(url, cancellationToken);
+                            var imageBytes = await File.ReadAllBytesAsync(linuxPath, cancellationToken);
                             
                             // レスポンスを作成
                             var response = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
                             response.Content = new ByteArrayContent(imageBytes);
                             
                             // Content-Typeを設定
-                            string extension = Path.GetExtension(url).ToLower();
+                            string extension = Path.GetExtension(linuxPath).ToLower();
                             string contentType = extension switch
                             {
                                 ".jpg" or ".jpeg" => "image/jpeg",
@@ -344,12 +349,12 @@ namespace JellyfinWbProvider.Providers
                             };
                             response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(contentType);
                             
-                            _logger.LogInformation($"ローカルファイルからの画像取得に成功: {url}");
+                            _logger.LogInformation($"ローカルファイルからの画像取得に成功: {linuxPath}");
                             return response;
                         }
                         else
                         {
-                            _logger.LogWarning($"ファイルが存在しません: {url}");
+                            _logger.LogWarning($"ファイルが存在しません: {linuxPath}");
                         }
                     }
                     catch (Exception ex)
@@ -383,6 +388,23 @@ namespace JellyfinWbProvider.Providers
             }
 
             return new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
+        }
+
+        private string ConvertUncToLinuxPath(string uncPath)
+        {
+            // \\server\share\path\file.jpg 形式のパスを処理
+            var parts = uncPath.TrimStart('\\').Split('\\');
+            
+            // NASの特定のパターンを変換
+            if (parts.Length >= 2 && parts[0] == "shun920" && parts[1] == "av")
+            {
+                // 残りのパスを結合
+                var remainingPath = string.Join("/", parts.Skip(2));
+                return $"/volume1/av/{remainingPath}";
+            }
+
+            // その他のパターンの場合はそのまま返す
+            return uncPath;
         }
 
         public void Dispose()

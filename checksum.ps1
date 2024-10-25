@@ -10,7 +10,7 @@ function Get-MD5Checksum {
 }
 
 # 使用例
-$zipPath = "JellyfinWbProvider.zip"
+$zipPath = "JellyfinWbProvider_1.0.0.0.zip"
 
 # チェックサムを計算
 $checksum = Get-MD5Checksum -FilePath $zipPath

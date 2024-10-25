@@ -10,3 +10,4 @@ C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Releas
 C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net8.0\refint\JellyfinWbProvider.dll
 C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net8.0\JellyfinWbProvider.pdb
 C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net8.0\ref\JellyfinWbProvider.dll
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net8.0\JellyfinWbProvider.sourcelink.json

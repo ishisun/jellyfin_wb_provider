@@ -1,0 +1,13 @@
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.csproj.AssemblyReference.cache
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.AssemblyInfoInputs.cache
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.AssemblyInfo.cs
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.csproj.CoreCompileInputs.cache
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.sourcelink.json
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\bin\Release\net6.0\JellyfinWbProvider.deps.json
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\bin\Release\net6.0\JellyfinWbProvider.dll
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\bin\Release\net6.0\JellyfinWbProvider.pdb
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.dll
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\refint\JellyfinWbProvider.dll
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\JellyfinWbProvider.pdb
+C:\Users\dlogi\Documents\code\jellyfin_wb_provider\JellyfinWbProvider\obj\Release\net6.0\ref\JellyfinWbProvider.dll
