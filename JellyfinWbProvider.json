@@ -12,7 +12,7 @@
                 "changelog": "初回リリース",
                 "targetAbi": "10.8.13.0",
                 "sourceUrl": "https://github.com/ishisun/jellyfin_wb_provider/releases/download/v1.0.0/JellyfinWbProvider_1.0.0.0.zip",
-                "checksum": "886e0dda855c0bf9663b109721a5563f",
+                "checksum": "38e7916f2a285727ab4bbba332e7de51",
                 "timestamp": "2024-01-20 00:00:00"
             }
         ]

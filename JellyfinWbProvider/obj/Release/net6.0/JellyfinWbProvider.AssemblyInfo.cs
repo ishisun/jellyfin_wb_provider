@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JellyfinWbProvider")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b234993f7c951670e344cd6fb953cf92877e1e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11a38ba4b8316c6f7ba6b63c2d2129a742452aff")]
 [assembly: System.Reflection.AssemblyProductAttribute("JellyfinWbProvider")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JellyfinWbProvider")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

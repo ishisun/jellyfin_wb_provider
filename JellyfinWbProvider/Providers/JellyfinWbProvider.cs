@@ -137,12 +137,17 @@ namespace JellyfinWbProvider.Providers
                             // 出演者を設定
                             if (!string.IsNullOrEmpty(metadata.Artist))
                             {
-                                var person = new PersonInfo
+                                var artists = metadata.Artist.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                                foreach (var artistName in artists)
                                 {
-                                    Name = metadata.Artist,
-                                    Type = PersonType.Actor
-                                };
-                                result.AddPerson(person);
+                                    var person = new PersonInfo
+                                    {
+                                        Name = artistName,
+                                        Type = PersonType.Actor
+                                    };
+                                    result.AddPerson(person);
+                                }
+                                _logger.LogInformation($"出演者を設定: {metadata.Artist}");
                             }
 
                             // ポスター画像のURLを設定
